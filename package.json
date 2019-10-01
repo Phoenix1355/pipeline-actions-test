@@ -1,0 +1,36 @@
+{
+  "name": "pipelines-test",
+  "version": "1.0.0",
+  "description": "A test project for CI/CD",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phoenix1355/pipelines-test.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Christian H. Bohlbro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Phoenix1355/pipelines-test/issues"
+  },
+  "homepage": "https://github.com/Phoenix1355/pipelines-test#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "rollup": "^1.22.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-size-snapshot": "^0.10.0",
+    "rollup-plugin-uglify": "^6.0.3"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.10.1"
+  }
+}
