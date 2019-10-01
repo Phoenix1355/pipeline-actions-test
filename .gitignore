@@ -2,6 +2,9 @@
 # Created by https://www.gitignore.io/api/react,macos
 # Edit at https://www.gitignore.io/?templates=react,macos
 
+###  ###
+lib/
+
 ### macOS ###
 # General
 .DS_Store
