@@ -1,7 +1,9 @@
 src/
+dev/
 scripts/
 .github/
 .eslint
+.babelrc
 .gitattributes
 .gitignore
 .prettier*
