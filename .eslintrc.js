@@ -2,7 +2,17 @@ const INDENT_SIZE = 2;
 
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['airbnb'],
+  plugins: [
+    'react',
+    'react-hooks',
+    'import',
+    'jsx-a11y',
+    'promise',
+    'security',
+    'flowtype',
+    'prettier',
+  ],
+  extends: ['airbnb', 'prettier'],
   env: {
     browser: true,
     node: true,
@@ -45,15 +55,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    'react',
-    'react-hooks',
-    'import',
-    'jsx-a11y',
-    'promise',
-    'security',
-    'flowtype',
-  ],
   parserOptions: {
     ecmaVersion: 9,
     sourceType: 'module',
