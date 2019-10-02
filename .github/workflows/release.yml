@@ -3,7 +3,7 @@ name: 🚀 Release
 on:
   push:
     paths:
-    - 'release/*'
+    - 'release/**'
   
 jobs:
   # Linting
