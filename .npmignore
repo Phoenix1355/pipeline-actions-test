@@ -2,7 +2,7 @@ src/
 dev/
 scripts/
 .github/
-.eslint
+.eslintrc.js
 .babelrc
 .gitattributes
 .gitignore

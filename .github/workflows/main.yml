@@ -3,8 +3,8 @@ name: '🕵️ PR'
 on:
   pull_request:
     branches:
-      - master
-      - develop
+    - master
+    - develop
 
 jobs:
   # Linting

@@ -2,59 +2,102 @@ name: 🚀 Release
 
 on:
   push:
-    paths:
-    - 'release/*'
+    branches:
+    - 'release/**'
   
 jobs:
   # Linting
   validate:
     name: Code Validation
-
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/node
-    - run: npm run lint:ci
-    - run: npm run test:ci
+    - name: Prepare
+      uses: actions/checkout@master
+
+    - name: Setup Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version: 12
+    
+    - name: Install
+      run: npm install
+    
+    - name: Linting
+      run: npm run lint:ci
+
+    - name: Testing
+      run: npm run test:ci
 
   # Build and publish
-  build:
-    name: Code Build
-
-    needs: validate
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/node
-    - run: npm run build
-  
   publish-npm:
-    name: Publish NPM
-    needs: build
+    name: Publish
+
+    #needs: validate
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+      - name: Prepare
+        uses: actions/checkout@master
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  publish-gpr:
-    name: Publish GPR
-
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-          scope: '@phoenix1355'
-      - run: npm publish
+      - name: Install & Build
+        run: |
+          npm install
+          npm run build --if-present
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish package
+        continue-on-error: true
+        run: |
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  # publish-gpr:
+  #   name: Publish GPR
+
+  #   # needs: validate
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Prepare
+  #       uses: actions/checkout@master
+
+  #     - name: Setup Node.js 12.x
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 12
+  #         registry-url: https://npm.pkg.github.com/
+  #         scope: '@phoenix1355'
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
+      
+  #     - name: Install & Build
+  #       run: |
+  #         npm install
+  #         npm run install --if-present
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
+      
+  #     - name: Publish
+  #       continue-on-error: true
+  #       run: |
+  #         npm publish
+  #         git config user.email ""
+  #         git config user.name "Publish Action"
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
+
+# - name: Bump package.json version
+#   env:
+#     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#   run: npm version 0.0.1
