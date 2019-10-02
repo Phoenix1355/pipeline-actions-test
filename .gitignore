@@ -4,6 +4,7 @@
 
 ###  ###
 lib/
+.size-snapshot.json
 
 ### macOS ###
 # General
