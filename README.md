@@ -4,7 +4,9 @@
 
 A project for testing a CI pipeline using the new Github Actions
 
-[![gpr package](https://github.com/Phoenix1355/pipeline-actions-test/workflows/.github/workflows/main.yml/badge.svg)](https://github.com/Phoenix1355/pipeline-actions-test)
+[![release pipeline](https://github.com/Phoenix1355/pipeline-actions-test/workflows/.github/workflows/release.yml/badge.svg)](https://github.com/Phoenix1355/pipeline-actions-test)
+[![npm package](https://img.shields.io/npm/v/@chrhb/pipelines-test/latest.svg)](https://www.npmjs.com/package/@chrhb/pipelines-test)
+[![npm downloads](https://img.shields.io/npm/dm/@chrhb/pipelines-test.svg)](https://www.npmjs.com/package/@chrhb/pipelines-test)
 
 </div>
 
