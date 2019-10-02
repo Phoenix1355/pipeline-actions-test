@@ -1,5 +1,5 @@
 {
-  "name": "pipelines-test",
+  "name": "@chrhb/pipelines-test",
   "version": "1.0.0",
   "description": "A test project for CI/CD",
   "main": "lib/index.js",
