@@ -9,7 +9,7 @@
     "lint": "eslint src",
     "lint:ci": "eslint src --output-file output.eslint -f json",
     "test": "jest --detectOpenHandles --forceExit --maxWorkers=3",
-    "test:ci": "jest --detectOpenHandles --forceExit --ci --testResultsProcessor=\"jest-junit\""
+    "test:ci": "jest --detectOpenHandles --forceExit --ci --reporters=jest-junit"
   },
   "repository": {
     "type": "git",
