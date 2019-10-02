@@ -21,16 +21,6 @@ jobs:
     - run: npm run test:ci
 
   # Build and publish
-  build:
-    name: Code Build
-
-    needs: validate
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/node
-    - run: npm run build
-  
   publish-npm:
     name: Publish NPM
 
@@ -43,6 +33,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -60,6 +51,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@phoenix1355'
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
