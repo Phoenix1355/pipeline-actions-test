@@ -2,7 +2,7 @@ name: 🚀 Release
 
 on:
   push:
-    paths:
+    branches:
     - 'release/**'
   
 jobs:
