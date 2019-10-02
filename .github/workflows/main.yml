@@ -13,10 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
+    - name: Prepare
+      uses: actions/checkout@master
+
+    - name: Setup Node.js
+      uses: actions/setup-node@master
       with:
         node-version: 12
-    - run: npm install
-    - run: npm run lint:ci
-    - run: npm run test:ci
+    
+    - name: Install
+      run: npm install
+    
+    - name: Lint
+      run: npm run lint:ci
+
+    - name: Test
+      run: npm run test:ci
