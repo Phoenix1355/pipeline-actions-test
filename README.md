@@ -29,15 +29,14 @@ import ReactDOM from 'react-dom';
 import { Button } from '@chrhb/pipelines-test';
 
 const App = () => (
-  <div className="site">
-    <Button type="outline" size="lg">Click me!</Button>
+  <div className='site'>
+    <Button type='outline' size='lg'>
+      Click me!
+    </Button>
   </div>
 );
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app)
-);
+ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
 ## Documentation
